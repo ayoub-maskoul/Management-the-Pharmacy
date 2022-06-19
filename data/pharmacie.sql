@@ -67,12 +67,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `prenom`, `nom`, `email`, `password`) VALUES
-(1, 'ayoub', 'maskoul', 'ayobmas10@gmail.com', 'ayoub'),
-(2, 'ayoub', 'maskoul', 'ayob@gmail.com', 'ayoub'),
-(3, 'ayoub', 'maskoul', 'ayobmas@gmail.com', '0000'),
-(4, 'hamza', 'maskoul', 'a@gmail.com', '1'),
-(5, 'imad', 'touil', 't@gmail.com', 'a'),
-(6, 'hamza', 'maskoul', 'ham@gmail.com', 'a');
+(1, 'ayoub', 'maskoul', 'ayobmas10@gmail.com', 'ayoub');
 
 --
 -- Indexes for dumped tables
