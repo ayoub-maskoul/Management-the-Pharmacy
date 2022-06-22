@@ -13,7 +13,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
-$sql2 = "SELECT codef,libelle FROM forme";
+$sql2 = "SELECT codef,libelle FROM forme where userid=$id";
 $result = $conn->query($sql2);
 $res = "";
 if ($result->num_rows > 0) {
@@ -81,11 +81,11 @@ $conn->close();
             </div>
             <div class="mb-3">
                 <label for="prix" class="form-label">prix</label>
-                <input type="text" class="form-control" placeholder="Entre your prix" name="prix">
+                <input type="number" class="form-control" placeholder="Entre your prix" name="prix">
             </div>
             <div class="mb-3">
                 <label for="qt" class="form-label">QT</label>
-                <input type="text" class="form-control" placeholder="Entre your qt" name="qt">
+                <input type="number" class="form-control" placeholder="Entre your qt" name="qt">
             </div>
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </form>
