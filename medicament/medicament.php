@@ -38,17 +38,21 @@
 
   if (isset($_POST['searche'])){
     $codef= $_POST['codef'];
-    $sql = "SELECT codem, nom , codef , ppv , qt FROM medicament WHERE codef=$codef";
-    $result = $conn->query($sql);
-    $res = "";
-    if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $res .=  "<tr> <td>" . $row["codem"]. "</td><td>" . $row["nom"]. "</td> <td> "
-        . $row["codef"]. "</td> <td> "   . $row["ppv"]. "dh</td><td> "   . $row["qt"]. "</td> <td> ". 
-        '<a class="btn mx-2 btn-outline-danger"" href=./deletemed.php?del='.$row["codem"].'>Delete</a>'. 
-        '<a class="btn btn-outline-success"" href=./updatemed.php?up='.$row["codem"].'>Update</a>' . "</td>". "</tr>";
+    $sql = "SELECT codem, nom , codef , ppv , qt FROM medicament WHERE codef=$codef AND userid=$id";
+    if ($result->num_rows > 0){
+      $result = $conn->query($sql);
+      $res = "";
+      if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+          $res .=  "<tr> <td>" . $row["codem"]. "</td><td>" . $row["nom"]. "</td> <td> "
+          . $row["codef"]. "</td> <td> "   . $row["ppv"]. "dh</td><td> "   . $row["qt"]. "</td> <td> ". 
+          '<a class="btn mx-2 btn-outline-danger"" href=./deletemed.php?del='.$row["codem"].'>Delete</a>'. 
+          '<a class="btn btn-outline-success"" href=./updatemed.php?up='.$row["codem"].'>Update</a>' . "</td>". "</tr>";
+      }
     }
-  }
+    } else{
+      echo "<script>alert('nothing forme')</script>";
+    }
   }
   $conn->close();
 ?>

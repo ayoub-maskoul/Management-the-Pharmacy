@@ -28,14 +28,21 @@ if (isset($_POST['submit'])){
     $codef=$_POST['codef'];
     $prix=$_POST['prix'];
     $qt=$_POST['qt'];
-        $sql1 = "INSERT INTO medicament ( nom, codef, ppv,qt,userid)
-        VALUES ('$nomM',$codef,$prix,$qt,$id)";
-    if ($conn->query($sql1) === TRUE) {
-        header("Location:medicament.php");
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+        if($result->num_rows == 0){
+            echo "<script>
+                    alert('nothing forme')
+                    document.location='medicament.php';
+            </script>";
+        }else{
+            $sql1 = "INSERT INTO medicament ( nom, codef, ppv,qt,userid)
+            VALUES ('$nomM',$codef,$prix,$qt,$id)";
+        if ($conn->query($sql1) === TRUE) {
+            header("Location:medicament.php");
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        }
 }
 $conn->close();
 ?>
@@ -87,7 +94,7 @@ $conn->close();
                 <label for="qt" class="form-label">QT</label>
                 <input type="number" class="form-control" placeholder="Entre your qt" name="qt">
             </div>
-            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="submit" class="btn btn-primary">Add</button>
         </form>
     </body>
 </html>
