@@ -67,7 +67,7 @@ $conn->close();
     <header style="background-color: #FFE77AFF;">
         <nav class="navbar d-flex justify-content-around align-items-center">
             <ul class="nav">
-                <li class="nav-link  p-1"><a class="navbar-brand " href=".../home.php"> <img src="../images/Pharmacy.svg" alt=""></a> </li>
+                <li class="nav-link  p-1"><a class="navbar-brand " href="../home.php"> <img src="../images/Pharmacy.svg" alt=""></a> </li>
                 <li class="nav-link pt-4"><a class="navbar-brand " href="../forme/forme.php">forme</a></li>
                 <li class="nav-link pt-4"><a class="navbar-brand " href="./medicament.php">Medicament</a></li>
             </ul>
