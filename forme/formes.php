@@ -1,6 +1,5 @@
 
 <?php
-  
     session_start();
     if (!isset($_SESSION['id'])) {
         header("Location:index.php");
@@ -15,12 +14,12 @@
     die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT f.libelle, sum(m.qt) , sum(m.qt * m.ppv) from forme f ,  medicament m where f.codef = m.codef AND f.userid=$id group by f.libelle " ;
+    $sql = "SELECT f.libelle, sum(m.qt) AS total_medicament , sum(m.qt * m.ppv) AS total_prix from forme f ,  medicament m where f.codef = m.codef AND f.userid=$id group by f.libelle " ;
     $result = $conn->query($sql);
     $res = "";
     if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        $res .=  "<tr> <td>" . $row["libelle"]. "</td><td>" . $row["sum(m.qt)"]. "</td><td>" . $row["sum(m.qt * m.ppv)"]. "</td>  </tr>";
+        $res .=  "<tr> <td>" . $row["libelle"]. "</td><td>" . $row["total_medicament"]. "</td><td>" . $row["total_prix"]. "</td>  </tr>";
     }
     } 
     $conn->close();
