@@ -4,6 +4,7 @@
     if (!isset($_SESSION['id'])) {
         header("Location:index.php");
     }
+    
     $id=$_SESSION['id'];
     $servername = "localhost";
     $username = "root";
